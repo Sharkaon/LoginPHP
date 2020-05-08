@@ -1,0 +1,122 @@
+.row::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+}
+
+.col-1{width: 8.33%;}
+.col-2{width: 16.66%;}
+.col-3{width: 25%;}
+.col-4{width: 33.33%;}
+.col-5{width: 41.66%;}
+.col-6{width: 50%;}
+.col-7{width: 58.33%;}
+.col-8{width: 66.66%;}
+.col-9{width: 75%;}
+.col-10{width: 83.33%;}
+.col-11{width: 91.66%;}
+.col-12{width: 100%;}
+
+@font-face{
+    font-family: roboto;
+    src: url(./Fonts/Roboto-Regular.ttf);
+}
+
+@font-face{
+    font-family: robotoLight;
+    src: url(./Fonts/Roboto-Light.ttf);
+}
+
+form{
+    margin-top: 10vw;
+}
+
+input{
+    margin-left: 8.33%;
+    height: 10vw;
+    border-radius: 10px;
+    font-family: robotoLight;
+    font-size: 6vw;
+    width:83.33%;
+}
+
+button{
+    border-radius: 15px;
+    background-color: blue;
+    color: white;
+    margin-left: 25%;
+    margin-top: 2vw;
+    font-family: roboto;
+    font-size: 7vw;
+    width: 50%;
+}
+
+p{
+    width: 100%;
+    text-align: center;
+    font-family: roboto;
+    font-size: 5vw;
+    margin-top: 5vw;
+}
+
+.goTo{
+    font-family: robotoLight;
+}
+
+#criada{
+    font-family: robotoLight;
+    font-size: 9vw;
+    width: 100%;
+    text-align: center;
+    margin-top: 5vw;
+}
+
+#welcome{
+    font-family: roboto;
+    font-size: 9.5vw;
+    width: 100%;
+    text-align: center;
+    margin-top: 15vw;
+}
+
+#leave{
+    margin-left: 33.33%;
+    margin-top: 10%;
+}
+
+#deslogar{
+    margin-left: 0;
+}
+
+@media only screen and (min-width:768px){
+    input{
+        width:41.66%;
+        font-size: 3vw;
+        height: 6vw;
+        margin-top: 0vw;
+        margin-left: 0vw;
+        float: left;
+    }
+    
+    form{
+        margin-top: 10vw;
+        margin-left: 8.33%;
+    }
+
+    button{
+        margin-top: 5vw;
+        margin-left: 25%;
+        width: 33.33%;
+        font-size: 5vw;
+    }
+
+    p{
+        font-size: 4vw;
+    }
+}
