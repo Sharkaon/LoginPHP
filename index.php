@@ -15,6 +15,8 @@
                 $email = $_POST["email"];
                 $senha = $_POST["senha"];
                 $senhaCripto = md5($senha);
+                $file=fopen("cadastros.txt", "a");
+                fclose($file);
                 if(filter_var($email, FILTER_VALIDATE_EMAIL)){
                     if($file=fopen("cadastros.txt", "r")){
                         while($linha=fgets($file)){
@@ -25,6 +27,7 @@
                                 }
                             }
                         }
+                        fclose($file);
                     }
                     if(!isset($repeatedEmail)){
                         if($file=fopen("cadastros.txt", "a")){
