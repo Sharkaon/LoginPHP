@@ -79,7 +79,7 @@ p{
 
 #welcome{
     font-family: roboto;
-    font-size: 9.5vw;
+    font-size: 8vw;
     width: 100%;
     text-align: center;
     margin-top: 15vw;
@@ -92,6 +92,14 @@ p{
 
 #deslogar{
     margin-left: 0;
+}
+
+#error{
+    color: red;
+    font-size: 6vw;
+    font-family: roboto;
+    width:100%;
+    text-align: center;
 }
 
 @media only screen and (min-width:768px){
@@ -110,13 +118,22 @@ p{
     }
 
     button{
-        margin-top: 5vw;
+        margin-top: 2vw;
         margin-left: 25%;
         width: 33.33%;
+        font-size: 4vw;
+    }
+
+    #welcome{
         font-size: 5vw;
     }
 
-    p{
-        font-size: 4vw;
+    #criada{
+        font-size: 5vw;
+    }
+
+    #leave{
+        margin-top: 0;
+        font-size: 5vw;
     }
 }

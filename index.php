@@ -15,31 +15,17 @@
                 $email = $_POST["email"];
                 $senha = $_POST["senha"];
                 $senhaCripto = md5($senha);
+
                 $file=fopen("cadastros.txt", "a");
                 fclose($file);
                 if(filter_var($email, FILTER_VALIDATE_EMAIL)){
-                    if($file=fopen("cadastros.txt", "r")){
-                        while($linha=fgets($file)){
-                            $linhas[]=explode("|", $linha);
-                            foreach ($linhas as $info){
-                                if($email==$info[0]){
-                                    $repeatedEmail=true;
-                                }
-                            }
+                    if($file=fopen("cadastros.txt", "a")){
+                        if(fwrite($file, "$email|$senhaCripto|$nome\r\n")){
+                            $_SESSION["logado"]=true;
+                            $_SESSION["criada"]=true;
+                            header("location:index.php"); /*Recarrega*/
                         }
                         fclose($file);
-                    }
-                    if(!isset($repeatedEmail)){
-                        if($file=fopen("cadastros.txt", "a")){
-                            if(fwrite($file, "$email|$senhaCripto|$nome\r\n")){
-                                $_SESSION["logado"]=true;
-                                $_SESSION["criada"]=true;
-                                header("location:index.php");
-                            }
-                            fclose($file);
-                        }
-                    }else{
-                        echo('<p id="error">Email já cadastrado</p>');
                     }
                 }
             }
@@ -55,17 +41,15 @@
                     $senhaL=$_POST["senhaL"];
                     $senhaCriptoL = md5($senhaL);
                     //Percorre e compara os itens recolhidos do arquivo
+                    $errorMessage=false;
                     foreach ($linhas as $info){
                         if($credencial==$info[0]&&$senhaCriptoL==$info[1]){
                             $_SESSION["logado"]=true;
                             header("location:index.php");
-                        }else{
-                            if($senhaCriptoL==$info[1]){
-                                echo("Email incorreto");
-                            }else if($credencial==$info[0]){
-                                echo("Senha incorreta");
-                            }else{
-                                echo("Email e Senha incorretos");
+                        }else if(!$errorMessage){
+                            if($senhaCriptoL!=$info[1]||$credencial!=$info[0]){
+                                echo("<p id='error'>Email ou senha incorretos</p>");
+                                $errorMessage=true;
                             }
                         }
                     }
